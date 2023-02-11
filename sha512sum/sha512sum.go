@@ -44,7 +44,7 @@ should be a former output of this program.  The default mode is to print
 a line with checksum, a character indicating type ('*' for binary, ' ' for
 text), and name for each FILE.
 */
-package main
+package sha512sum
 
 import (
 	"fmt"
@@ -94,10 +94,10 @@ var (
 	binary_mode  = flag.BoolP("binary", "b", false, "")
 )
 
-func main() {
+func Main() int {
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "%s", Help)
-		os.Exit(1)
+		return 1
 	}
 
 	flag.Parse()
@@ -117,7 +117,7 @@ func main() {
 	switch {
 	case *show_version:
 		fmt.Fprintf(os.Stdout, "%s", Version)
-		os.Exit(0)
+		return 0
 	case *check_sum:
 		if r := cc.CompareChecksum(file_lists, "sha512",
 			!(*no_output), *show_warn); !r {
@@ -130,8 +130,8 @@ func main() {
 	}
 
 	if has_error {
-		os.Exit(1)
+		return 1
 	}
 
-	os.Exit(0)
+	return 0
 }

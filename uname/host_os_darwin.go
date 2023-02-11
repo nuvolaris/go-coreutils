@@ -1,5 +1,5 @@
 // +build darwin,!ostypes
 
-package main
+package uname
 
 const hostOS = "Darwin"

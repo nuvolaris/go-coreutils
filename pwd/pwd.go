@@ -17,7 +17,7 @@
 	Written by Robert Deusser <iamthemuffinman@outlook.com>
 */
 
-package main
+package pwd
 
 import (
 	"fmt"
@@ -208,33 +208,33 @@ func GetwdWithoutSymlinks() (dir string, err error) {
 	return dir, nil
 }
 
-func main() {
+func Main() int {
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "%s", Help)
-		os.Exit(1)
+		return 1
 	}
 	flag.Parse()
 
 	switch {
 	case *version:
 		fmt.Fprintf(os.Stdout, "%s", Version)
-		os.Exit(0)
+		return 0
 	case *logical:
 		dir, err := os.Getwd()
 		if err != nil {
-			os.Exit(1)
+			return 1
 		}
 		fmt.Println(dir)
 	case *physical:
 		dir, err := GetwdWithoutSymlinks()
 		if err != nil {
-			os.Exit(1)
+			return 1
 		}
 		fmt.Println(dir)
 	default:
 		dir, err := GetwdWithoutSymlinks()
 		if err != nil {
-			os.Exit(1)
+			return 1
 		}
 		fmt.Println(dir)
 	}

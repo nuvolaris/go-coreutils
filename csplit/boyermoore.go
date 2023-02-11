@@ -1,4 +1,4 @@
-package main
+package csplit
 
 var BuffSize = 7
 

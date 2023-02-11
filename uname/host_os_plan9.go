@@ -1,5 +1,5 @@
 // +build plan9,!ostypes
 
-package main
+package uname
 
 const hostOS = "Plan 9"

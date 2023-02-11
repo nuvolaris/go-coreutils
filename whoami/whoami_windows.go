@@ -20,7 +20,7 @@
 /* Equivalent to 'id -un'. */
 /* Written by Eric Lagergren and mattn */
 
-package main
+package whoami
 
 import "os/user"
 

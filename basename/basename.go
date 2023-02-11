@@ -12,7 +12,7 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-package main
+package basename
 
 import (
 	"fmt"
@@ -75,17 +75,17 @@ func baseName(path, suffix string, null bool) string {
 	return dir
 }
 
-func main() {
+func Main() int {
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "%s", Help)
-		os.Exit(1)
+		return 1
 	}
 	flag.Parse()
 
 	switch {
 	case *version:
 		fmt.Fprintf(os.Stdout, "%s", Version)
-		os.Exit(0)
+		return 0
 	case *multiple:
 		for _, v := range flag.Args() {
 			dir := baseName(v, *suffix, *zero)

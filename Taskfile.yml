@@ -1,0 +1,19 @@
+version:  '3'
+
+tasks:
+
+  patch: |-
+    for i in $(ls -1)
+    do  if test -e $i/$i.go
+        then  cd $i
+              echo "*** $i ***"
+              sed -i.bak -e "s/package main/package $i/" *.go 
+              sed -i.bak -E -e 's/os.Exit\((.)\)/return \1/' *.go 
+              sed -i.bak -e "s/func main()/func Main() int/" $i.go 
+              cd ..
+        fi
+    done
+
+  reset:
+    - git reset --hard
+    - rm */*.bak

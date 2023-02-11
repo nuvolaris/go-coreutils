@@ -28,7 +28,7 @@ Inspired by jla, djm; and mstone */
    idle: -u
 */
 
-package main
+package who
 
 import (
 	"bytes"
@@ -224,10 +224,10 @@ func printUsers(u *utmp.Utmp, bt int32) {
 
 }
 
-func main() {
+func Main() int {
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "%s", Help)
-		os.Exit(0)
+		return 0
 	}
 	flag.Parse()
 	//args := flag.Args()

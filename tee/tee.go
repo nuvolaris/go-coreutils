@@ -12,7 +12,7 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-package main
+package tee
 
 import "os"
 import "fmt"
@@ -20,7 +20,7 @@ import "io/ioutil"
 import flag "github.com/ogier/pflag"
 import "log"
 
-func main() {
+func Main() int {
 	flagAppend := flag.BoolP("append", "a", false, "append to file")
 	flag.Parse()
 	bytes, _ := ioutil.ReadAll(os.Stdin)

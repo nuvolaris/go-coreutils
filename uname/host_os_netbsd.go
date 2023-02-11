@@ -1,5 +1,5 @@
 // +build netbsd,!ostypes
 
-package main
+package uname
 
 const hostOS = "NetBSD"

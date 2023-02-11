@@ -1,5 +1,5 @@
 // +build ostypes
 
-package main
+package uname
 
 var hostOS = unknown

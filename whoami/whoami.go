@@ -20,7 +20,7 @@
 /* Equivalent to 'id -un'. */
 /* Written by Eric Lagergren and mattn */
 
-package main
+package whoami
 
 import (
 	"fmt"
@@ -55,16 +55,16 @@ var (
 	fatal   = log.New(os.Stderr, "", 0)
 )
 
-func main() {
+func Main() int {
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "%s", Help)
-		os.Exit(0)
+		return 0
 	}
 	flag.Parse()
 
 	if *version {
 		fmt.Fprintf(os.Stderr, "%s", Version)
-		os.Exit(0)
+		return 0
 	}
 
 	// This function call *should* be inlined on both

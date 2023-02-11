@@ -1,5 +1,5 @@
 // +build solaris,!ostypes
 
-package main
+package uname
 
 const hostOS = "Solaris"

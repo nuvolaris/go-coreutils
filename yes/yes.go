@@ -1,4 +1,4 @@
-package main
+package yes
 
 import (
 	"bytes"
@@ -9,7 +9,7 @@ import (
 
 var version bool
 
-func main() {
+func Main() int {
 	flag.BoolVar(&version, "version", false, "")
 	flag.BoolVar(&version, "v", false, "")
 

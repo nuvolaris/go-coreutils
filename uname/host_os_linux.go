@@ -1,5 +1,5 @@
 // +build linux,!ostypes
 
-package main
+package uname
 
 const hostOS = "GNU/Linux"

@@ -1,7 +1,7 @@
 // Copyright (c) 2014-2016 Eric Lagergren
 // Use of this source code is governed by the GPL v3 or later.
 
-package main
+package uname
 
 import (
 	"fmt"
@@ -81,7 +81,7 @@ func decodeFlags() printer {
 	return toprint
 }
 
-func main() {
+func Main() int {
 	flag.Usage = func() {
 		fmt.Printf(`Usage: %s [OPTION]...
 Print certain system information. With no OPTION, same as -s.

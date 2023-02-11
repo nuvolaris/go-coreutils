@@ -12,7 +12,7 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-package main
+package base64
 
 import (
 	"encoding/base64"
@@ -134,17 +134,17 @@ func wrapPrint(output []byte, wrap int) {
 	}
 }
 
-func main() {
+func Main() int {
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "%s", Help)
-		os.Exit(1)
+		return 1
 	}
 	flag.Parse()
 
 	switch {
 	case *version:
 		fmt.Fprintf(os.Stdout, "%s", Version)
-		os.Exit(0)
+		return 0
 	case *wrap < 0:
 		log.Fatalf("invalid wrap size: %d", *wrap)
 	default:

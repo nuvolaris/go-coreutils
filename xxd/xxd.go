@@ -9,7 +9,7 @@
 	Current version (c) 2014-2015 Eric Lagergren and Felix Geisendörfer
 */
 
-package main
+package xxd
 
 import (
 	"bufio"
@@ -725,21 +725,21 @@ func xxd(r io.Reader, w io.Writer, fname string) error {
 	return nil
 }
 
-func main() {
+func Main() int {
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "%s\n", Help)
-		os.Exit(0)
+		return 0
 	}
 	flag.Parse()
 
 	if flag.NArg() == 0 {
 		fmt.Fprintf(os.Stderr, "no input file given\n%s\n", Help)
-		os.Exit(1)
+		return 1
 	}
 
 	if *version {
 		fmt.Fprintf(os.Stderr, "%s\n", Version)
-		os.Exit(0)
+		return 0
 	}
 
 	if flag.NArg() > 2 {

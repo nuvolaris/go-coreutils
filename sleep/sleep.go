@@ -12,17 +12,17 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-package main
+package sleep
 
 import "time"
 import "os"
 import "strconv"
 
-func main() {
+func Main() int {
 	if len(os.Args) >= 2 {
 		duration, err := strconv.ParseInt(os.Args[1], 0, 64)
 		if err != nil || duration < 0 {
-			os.Exit(1)
+			return 1
 		}
 		time.Sleep(time.Duration(duration) * time.Second)
 	}

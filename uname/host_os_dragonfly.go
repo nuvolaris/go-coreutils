@@ -1,5 +1,5 @@
 // +build dragonfly,!ostypes
 
-package main
+package uname
 
 const hostOS = "Dragonfly"

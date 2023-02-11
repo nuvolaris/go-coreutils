@@ -22,7 +22,7 @@
 /* Equivalent to 'id -un'. */
 /* Written by Eric Lagergren */
 
-package main
+package whoami
 
 import (
 	"os"

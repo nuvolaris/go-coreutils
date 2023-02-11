@@ -1,4 +1,4 @@
-package main
+package chown
 
 type ChangeStatus int
 

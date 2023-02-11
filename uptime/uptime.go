@@ -1,4 +1,4 @@
-package main
+package uptime
 
 import (
 	"fmt"
@@ -9,7 +9,7 @@ import (
 	flag "github.com/ogier/pflag"
 )
 
-func main() {
+func Main() int {
 	flag.Usage = func() {
 		// This is a little weird because I want to insert the correct
 		// UTMP/WTMP file names into the Help output, but usually my
@@ -17,13 +17,13 @@ func main() {
 		// break it up into a couple chunks and move around some formatting.
 		fmt.Fprintf(os.Stderr, "%s %s.  %s %s",
 			Help1, utmp.UtmpFile, utmp.WtmpFile, Help2)
-		os.Exit(1)
+		return 1
 	}
 	flag.Parse()
 
 	if *version {
 		fmt.Printf("%s\n", Version)
-		os.Exit(0)
+		return 0
 	}
 
 	switch flag.NArg() {

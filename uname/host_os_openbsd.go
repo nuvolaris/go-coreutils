@@ -1,5 +1,5 @@
 // +build openbsd,!ostypes
 
-package main
+package uname
 
 const hostOS = "OpenBSD"

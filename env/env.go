@@ -16,7 +16,7 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-package main
+package env
 
 import (
 	"fmt"
@@ -107,10 +107,10 @@ func parseFlags(argv []string) (args []string) {
 			set = argv[i]
 		case "--help":
 			fmt.Fprintf(os.Stderr, "%s", help)
-			os.Exit(1)
+			return 1
 		case "--version":
 			fmt.Printf("%s", version)
-			os.Exit(0)
+			return 0
 		default:
 			args = append(args, v)
 		}
@@ -118,7 +118,7 @@ func parseFlags(argv []string) (args []string) {
 	return args
 }
 
-func main() {
+func Main() int {
 	args := parseFlags(os.Args)
 
 	if unset != "" {

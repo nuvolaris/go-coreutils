@@ -1,4 +1,4 @@
-package main
+package false
 
 import (
 	"fmt"
@@ -25,7 +25,7 @@ There is NO WARRANTY, to the extent permitted by law.
 `
 )
 
-func main() {
+func Main() int {
 	if len(os.Args) == 2 {
 		if os.Args[1] == "--help" {
 			fmt.Printf("%s", Help)
@@ -35,5 +35,5 @@ func main() {
 			fmt.Printf("%s", Version)
 		}
 	}
-	os.Exit(1)
+	return 1
 }

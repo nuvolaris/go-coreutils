@@ -12,7 +12,7 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-package main
+package seq
 
 import (
 	"os"
@@ -20,7 +20,7 @@ import (
 )
 import "fmt"
 
-func main() {
+func Main() int {
 	// TODO: Also handle floats.
 	start, inc, end := 1, 1, 0
 	nargs := len(os.Args)
@@ -39,7 +39,7 @@ func main() {
 			msg = fmt.Sprintf("extra operand '%s'", os.Args[4])
 		}
 		fmt.Println("seq:", msg)
-		os.Exit(1)
+		return 1
 	}
 
 	for i := start; i <= end; i += inc {
@@ -51,7 +51,7 @@ func parseInt(a string) int {
 	i, err := strconv.Atoi(a)
 	if err != nil {
 		fmt.Println("seq:", err)
-		os.Exit(1)
+		return 1
 	}
 	return i
 }

@@ -23,7 +23,7 @@
 
 // BUG(eric): -R flag could get stuck in an infinite loop
 
-package main
+package chown
 
 import (
 	"fmt"
@@ -52,16 +52,16 @@ var (
 	version = flag.Bool("version", false, "")
 )
 
-func main() {
+func Main() int {
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "%s", Help)
-		os.Exit(1)
+		return 1
 	}
 	flag.Parse()
 
 	if *version {
 		fmt.Printf("%s\n", Version)
-		os.Exit(0)
+		return 0
 	}
 
 	// 1 if --dereference, 0 if --no-dereference, -1 if neither

@@ -19,7 +19,7 @@
 
 /* Written by Eric Lagergren */
 
-package main
+package logname
 
 import (
 	"fmt"
@@ -59,16 +59,16 @@ var (
 	//fatal = log.New(os.Stderr, "", log.Lshortfile)
 )
 
-func main() {
+func Main() int {
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "%s", HELP)
-		os.Exit(0)
+		return 0
 	}
 	flag.Parse()
 
 	if *version {
 		fmt.Fprintf(os.Stderr, "%s", VERSION)
-		os.Exit(0)
+		return 0
 	}
 
 	name, err := login.GetLogin()

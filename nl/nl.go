@@ -12,7 +12,7 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-package main
+package nl
 
 import "os"
 import "fmt"
@@ -20,7 +20,7 @@ import "io/ioutil"
 import "strings"
 import flag "github.com/ogier/pflag"
 
-func main() {
+func Main() int {
 	bFlag := flag.StringP("body-numbering", "b", "t", "style")
 	flag.Parse()
 	if len(flag.Args()) == 0 {

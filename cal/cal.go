@@ -12,7 +12,7 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-package main
+package cal
 
 import "fmt"
 import flag "github.com/ogier/pflag"
@@ -80,7 +80,7 @@ func calendar(month int, year int) {
 	}
 }
 
-func main() {
+func Main() int {
 	flag.Parse()
 	if len(flag.Args()) == 0 {
 		year := int(time.Now().Year())

@@ -1,5 +1,5 @@
 // +build windows,!ostypes
 
-package main
+package uname
 
 const hostOS = "Windows NT"

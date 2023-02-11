@@ -17,7 +17,7 @@
 	Written by Robert Deusser <iamthemuffinman@outlook.com>
 */
 
-package main
+package touch
 
 import (
 	"fmt"
@@ -74,16 +74,16 @@ var (
 	version  = flag.BoolP("version", "v", false, "")
 )
 
-func main() {
+func Main() int {
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "%s", Help)
-		os.Exit(1)
+		return 1
 	}
 	flag.Parse()
 
 	if *version {
 		fmt.Fprintf(os.Stdout, "%s", Version)
-		os.Exit(0)
+		return 0
 	}
 
 	if len(flag.Args()) > 0 {

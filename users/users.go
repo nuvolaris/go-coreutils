@@ -1,4 +1,4 @@
-package main
+package users
 
 import (
 	"fmt"
@@ -11,7 +11,7 @@ import (
 	"github.com/EricLagergren/go-gnulib/utmp"
 )
 
-func main() {
+func Main() int {
 	flag.Usage = func() {
 		fmt.Printf("Usage: %s [OPTION]... [FILE]\n", flag.Program)
 		fmt.Printf(`Output who is currently logged in according to FILE.
@@ -24,7 +24,7 @@ If FILE is not specified, use %s. %s as FILE is common.
 Report %s bugs to ericscottlagergren@gmail.com
 Go coreutils home page: <https://www.github.com/EricLagergren/go-coreutils/>
 `, flag.Program)
-		os.Exit(0)
+		return 0
 	}
 
 	flag.Parse()

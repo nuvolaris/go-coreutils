@@ -1,4 +1,4 @@
-package main
+package cp
 
 import (
 	"bytes"
@@ -312,7 +312,7 @@ func cp(n int, files []string, dir string, noDir bool, options *Options) bool {
 	return true
 }
 
-func main() {
+func Main() int {
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "%s\n", HELP)
 		return
@@ -526,5 +526,5 @@ func main() {
 	if cp(flag.NArg()-1, flag.Args(), targDir, noTargDir, o) {
 		return
 	}
-	os.Exit(1)
+	return 1
 }

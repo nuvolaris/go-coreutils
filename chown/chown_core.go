@@ -1,4 +1,4 @@
-package main
+package chown
 
 import (
 	"fmt"
@@ -95,7 +95,7 @@ func DescribeChange(file string, changed ChangeStatus, oldUser, oldGroup, user, 
 			format = "ownership of %q retained\n"
 		}
 	default:
-		os.Exit(1)
+		return 1
 	}
 
 	fmt.Printf(format, file, oldSpec, spec)
